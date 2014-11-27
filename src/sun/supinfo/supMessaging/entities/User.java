@@ -26,7 +26,7 @@ public class User implements Serializable {
     private Date inscriptionDate;
 
     @OneToMany(mappedBy = "user")
-    private List<ContactBinding> contactsBinding;
+    private List<Contacts> contacts;
 
     public Date getInscriptionDate() {
         return inscriptionDate;
@@ -36,12 +36,12 @@ public class User implements Serializable {
         this.inscriptionDate = inscriptionDate;
     }
 
-    public List<ContactBinding> getContactsBinding() {
-        return contactsBinding;
+    public List<Contacts> getContactsBinding() {
+        return contacts;
     }
 
-    public void setContactsBinding(List<ContactBinding> contactsBinding) {
-        this.contactsBinding = contactsBinding;
+    public void setContactsBinding(List<Contacts> contacts) {
+        this.contacts = contacts;
     }
 
     public Long getId() {

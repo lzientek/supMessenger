@@ -15,8 +15,12 @@ public class Message {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "contactBinding_FK")
-    private ContactBinding contactBinding;
+    @JoinColumn(name = "transmitter_fk")
+    private User transmitter;
+
+    @ManyToOne
+    @JoinColumn(name = "recipient_fk")
+    private User recipient;
 
     private String message;
 
@@ -30,12 +34,20 @@ public class Message {
         this.id = id;
     }
 
-    public ContactBinding getContactBinding() {
-        return contactBinding;
+    public User getTransmitter() {
+        return transmitter;
     }
 
-    public void setContactBinding(ContactBinding contactbinding) {
-        this.contactBinding = contactbinding;
+    public void setTransmitter(User transmitter) {
+        this.transmitter = transmitter;
+    }
+
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
     }
 
     public String getMessage() {

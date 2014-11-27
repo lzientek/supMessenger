@@ -8,8 +8,8 @@ import java.util.List;
  * Created by lucas on 27/11/2014.
  */
 @Entity
-@Table(name = "ContactBindings")
-public class ContactBinding implements Serializable {
+@Table(name = "Contacts")
+public class Contacts implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,9 +21,6 @@ public class ContactBinding implements Serializable {
     @ManyToOne
     @JoinColumn(name = "contact_fk")
     private User contact;
-
-    @OneToMany(mappedBy = "contactBinding")
-    private List<Message> messages;
 
     public Long getId() {
         return id;
@@ -49,11 +46,4 @@ public class ContactBinding implements Serializable {
         this.contact = contact;
     }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
 }
