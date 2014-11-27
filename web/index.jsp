@@ -1,3 +1,6 @@
+<%@ page import="sun.supinfo.supMessaging.entities.Message" %>
+<%@ page import="javax.persistence.Persistence" %>
+<%@ page import="javax.persistence.EntityManagerFactory" %>
 <%--
   Created by IntelliJ IDEA.
   User: lucas
@@ -12,6 +15,10 @@
     <title></title>
   </head>
   <body>
-
+  <%
+      EntityManagerFactory emf = Persistence.createEntityManagerFactory("My-PU");
+      new Message();
+      emf.close();
+  %>
   </body>
 </html>

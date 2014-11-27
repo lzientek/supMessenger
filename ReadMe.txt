@@ -1,6 +1,7 @@
 
 
- 1.  Créer les class : utilisateur  et message , puis créer le model entity ,  un model de liaisons d'ajout entres les utilisateurs
+ 1.  Créer les class : utilisateur  et message , puis créer le model entity ,
+ un model de liaisons d'ajout entres les utilisateurs
  
  2.  Créer la page d'acceuil  , permet de se log , de s'inscrire
  

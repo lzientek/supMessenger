@@ -3,6 +3,9 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="IdProvider" IDEtalkID="51AE7EF287195BC4CEC194FC0F3B7629" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
