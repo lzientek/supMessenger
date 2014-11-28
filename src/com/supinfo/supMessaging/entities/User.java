@@ -1,6 +1,6 @@
-package sun.supinfo.supMessaging.entities;
+package com.supinfo.supMessaging.entities;
 
-import sun.supinfo.supMessaging.helpers.Crypto;
+import com.supinfo.supMessaging.helpers.Crypto;
 
 import javax.persistence.*;
 import java.io.Serializable;

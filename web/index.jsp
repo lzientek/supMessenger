@@ -1,4 +1,4 @@
-<%@ page import="sun.supinfo.supMessaging.entities.Message" %>
+<%@ page import="com.supinfo.supMessaging.entities.Message" %>
 <%@ page import="javax.persistence.Persistence" %>
 <%@ page import="javax.persistence.EntityManagerFactory" %>
 <%--

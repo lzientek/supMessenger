@@ -1,4 +1,4 @@
-package sun.supinfo.supMessaging.helpers;
+package com.supinfo.supMessaging.helpers;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

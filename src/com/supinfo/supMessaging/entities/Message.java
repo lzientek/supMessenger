@@ -1,4 +1,4 @@
-package sun.supinfo.supMessaging.entities;
+package com.supinfo.supMessaging.entities;
 
 import javax.persistence.*;
 import java.util.Date;
