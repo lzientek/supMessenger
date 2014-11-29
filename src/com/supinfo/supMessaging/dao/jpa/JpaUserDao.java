@@ -85,4 +85,9 @@ public class JpaUserDao implements UserDao {
     public void removeUser(User user) {
         PersistHelper.remove(emf, user);
     }
+
+    @Override
+    public void updateUser(User user) {
+        PersistHelper.update(emf, user);
+    }
 }
