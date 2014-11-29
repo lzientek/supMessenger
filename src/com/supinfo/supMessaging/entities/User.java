@@ -22,6 +22,8 @@ public class User implements Serializable {
     private String userName;
 
     private String passWord;
+    
+	private String mail;
 
     private Date inscriptionDate;
 
@@ -94,4 +96,13 @@ public class User implements Serializable {
     public void setUnEncryptPassWord(String passWord) {
         this.passWord = CryptoHelper.encryptPassword(passWord);
     }
+    
+    
+    public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 }
