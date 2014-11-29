@@ -1,20 +1,16 @@
 package com.supinfo.supMessaging.servlets;
 
-import java.io.IOException;
-import java.util.Date;
+import com.supinfo.supMessaging.dao.DaoFactory;
+import com.supinfo.supMessaging.dao.UserDao;
+import com.supinfo.supMessaging.entities.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-
-import com.supinfo.supMessaging.dao.DaoFactory;
-import com.supinfo.supMessaging.dao.UserDao;
-import com.supinfo.supMessaging.dao.jpa.JpaUserDao;
-import com.supinfo.supMessaging.entities.User;
+import java.io.IOException;
+import java.util.Date;
 
 /**
  * Servlet implementation class Register
@@ -47,29 +43,28 @@ public class Register extends HttpServlet {
 		try {
 			
 			User lUser = new User();
-			
-			if(request.getAttribute("username") != null)
-			{
-				lUser.setUserName(request.getAttribute("username").toString());
-			}
+
+            if (request.getParameter("username") != null) {
+                lUser.setUserName(request.getParameter("username"));
+            }
 			else
 			{
 				throw new Exception("Bad username !");
 			}
-			
-			if((request.getAttribute("password") != null) && (request.getAttribute("password2") != null) && (request.getAttribute("password").equals(request.getAttribute("password2"))) )
-			{
-				lUser.setPassWord(request.getAttribute("username").toString());
-			}
+
+            if ((request.getParameter("password") != null)
+                    && (request.getParameter("password2") != null)
+                    && (request.getParameter("password").equals(request.getParameter("password2")))) {
+                lUser.setPassWord(request.getParameter("password").toString());
+            }
 			else
 			{
 				throw new Exception("Bad password !");
 			}
-			
-			if(request.getAttribute("mail") != null)
-			{
-				lUser.setMail(request.getAttribute("mail").toString());
-			}
+
+            if (request.getParameter("mail") != null) {
+                lUser.setMail(request.getParameter("mail").toString());
+            }
 			else
 			{
 				throw new Exception("Bad username !");
@@ -80,14 +75,14 @@ public class Register extends HttpServlet {
 			
 			UserDao luserDao = DaoFactory.getUserDao();
 			luserDao.addUser(lUser);
-						
-			request.setAttribute("Success", true);
-			request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);	
+
+            request.setAttribute("success", true);
+            request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
 			
-		} catch (Exception e) {			
-			request.setAttribute("Success", false);
-			request.setAttribute("Error", e);
-			request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
+		} catch (Exception e) {
+            request.setAttribute("success", false);
+            request.setAttribute("error", e);
+            request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
 		}
 		
 			
