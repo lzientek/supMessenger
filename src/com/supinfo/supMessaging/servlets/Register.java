@@ -55,7 +55,7 @@ public class Register extends HttpServlet {
             if ((request.getParameter("password") != null)
                     && (request.getParameter("password2") != null)
                     && (request.getParameter("password").equals(request.getParameter("password2")))) {
-                lUser.setPassWord(request.getParameter("password").toString());
+                lUser.setUnEncryptPassWord(request.getParameter("password"));
             }
 			else
 			{
@@ -63,12 +63,12 @@ public class Register extends HttpServlet {
 			}
 
             if (request.getParameter("mail") != null) {
-                lUser.setMail(request.getParameter("mail").toString());
+                lUser.setMail(request.getParameter("mail"));
             }
 			else
 			{
-				throw new Exception("Bad username !");
-			}
+                throw new Exception("Bad mail !");
+            }
 			
 			Date lDate = new Date();
 			lUser.setInscriptionDate(lDate);

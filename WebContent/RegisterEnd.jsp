@@ -14,8 +14,9 @@
 		</c:if>
 <c:if test="${success eq false}">
 			<p> Register Failed !</p><br/>
-			<p> Error : <c:out value="${Error}"></c:out> </p>
-		</c:if>
+
+    <p> Error : <c:out value="${error.message}"></c:out></p>
+</c:if>
 		<br/><br/>
 		<a href="Home.jsp" >Return home page</a>
 </body>
