@@ -6,9 +6,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 
 /**
- * Created by lucas on 27/11/2014.
+ * Created on the 27/11/2014.
  */
-public class Crypto {
+public class CryptoHelper {
     public static String encryptPassword(String password) {
         String sha1 = "";
         try {

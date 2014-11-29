@@ -15,10 +15,6 @@
     <title></title>
   </head>
   <body>
-  <%
-      EntityManagerFactory emf = Persistence.createEntityManagerFactory("My-PU");
-      new Message();
-      emf.close();
-  %>
+
   </body>
 </html>

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by lucas on 27/11/2014.
+ * Created on the 27/11/2014.
  */
 @Entity
 @Table(name = "Contacts")
@@ -21,6 +21,14 @@ public class Contacts implements Serializable {
     @ManyToOne
     @JoinColumn(name = "contact_fk")
     private User contact;
+
+    public Contacts() {
+    }
+
+    public Contacts(User user, User contact) {
+        this.user = user;
+        this.contact = contact;
+    }
 
     public Long getId() {
         return id;

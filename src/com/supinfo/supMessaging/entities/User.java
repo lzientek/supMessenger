@@ -1,6 +1,6 @@
 package com.supinfo.supMessaging.entities;
 
-import com.supinfo.supMessaging.helpers.Crypto;
+import com.supinfo.supMessaging.helpers.CryptoHelper;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -83,7 +83,7 @@ public class User implements Serializable {
      * @return true if equal
      */
     public Boolean checkPassword(String pass) {
-        return passWord.equals(Crypto.encryptPassword(pass));
+        return passWord.equals(CryptoHelper.encryptPassword(pass));
     }
 
     /**
@@ -92,6 +92,6 @@ public class User implements Serializable {
      * @param passWord
      */
     public void setUnEncryptPassWord(String passWord) {
-        this.passWord = Crypto.encryptPassword(passWord);
+        this.passWord = CryptoHelper.encryptPassword(passWord);
     }
 }
