@@ -70,8 +70,8 @@ public class JpaMessageDao implements MessageDao {
 
 	@Override
     public Long getNumberOfMessage() {
-        // TODO Auto-generated method stub
-		EntityManager em = emf.createEntityManager();
+
+        EntityManager em = emf.createEntityManager();
         try {
             Query query = em.createQuery("SELECT COUNT(*) FROM Message");
             return (Long) query.getSingleResult();
