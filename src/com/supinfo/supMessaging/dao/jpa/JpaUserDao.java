@@ -71,6 +71,18 @@ public class JpaUserDao implements UserDao {
     }
 
     @Override
+    public List<User> searchByUsername(String search) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT u FROM User AS u WHERE u.userName LIKE :s");
+            query.setParameter("s", "%" + search + "%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
     public List<User> getAllUsers() {
         EntityManager em = emf.createEntityManager();
         try {

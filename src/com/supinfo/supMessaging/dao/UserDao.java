@@ -14,6 +14,8 @@ public interface UserDao {
 
     User findUserByUsername(String username);
 
+    List<User> searchByUsername(String search);
+
     User getUserByIdWithContacts(Long id);
 
     List<User> getAllUsers();

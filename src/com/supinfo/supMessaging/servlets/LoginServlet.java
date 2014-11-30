@@ -48,8 +48,7 @@ public class LoginServlet extends HttpServlet {
                 if (lUser.checkPassword(request.getParameter("password"))) {
                     //on pose la session id!
                     request.getSession().setAttribute("userId", lUser.getId());
-
-                    request.getRequestDispatcher("HomeConnected.jsp").forward(request, response);
+                    response.sendRedirect("Home.jsp");
 
                 } else {
                     throw new Exception("Bad password !");
@@ -60,8 +59,9 @@ public class LoginServlet extends HttpServlet {
 
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
+
     }
 
 }

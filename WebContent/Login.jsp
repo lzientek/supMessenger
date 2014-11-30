@@ -4,10 +4,10 @@
 <html>
 <head>
     <title>Login</title>
-    <%@ include file="/Style/HeaderStyle.jsp" %>
+    <%@ include file="Style/HeaderStyle.jsp" %>
 </head>
 <body>
-<%@ include file="/Partial/MenuPartial.jsp" %>
+<%@ include file="Partial/MenuPartial.jsp" %>
 <div class="container">
     <h2>Login</h2>
     <c:if test="${not empty error}">
@@ -35,7 +35,7 @@
         </div>
 
 
-        <a href="RegisterPage.jsp">Register now !</a>
+        <a href="Register">Register now !</a>
     </form>
 </div>
 </body>

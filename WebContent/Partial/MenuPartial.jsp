@@ -34,7 +34,7 @@
                 <form class="navbar-form navbar-right" role="form" method="post" action="Search">
 
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Search...">
+                        <input class="form-control" name="search" type="text" placeholder="Search...">
                     </div>
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
