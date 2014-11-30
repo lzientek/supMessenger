@@ -40,6 +40,6 @@
                 </form>
             </c:if>
         </div>
-        <!--/.nav-collapse -->
+
     </div>
 </nav>

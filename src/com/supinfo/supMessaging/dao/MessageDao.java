@@ -15,6 +15,8 @@ public interface MessageDao {
 
     List<Message> getMessagesByUsers(User actualUser, User contact);
 
+    List<Message> getAdminMessage();
+
     void removeMessage(Message message);
 
     void updateMessage(Message message);

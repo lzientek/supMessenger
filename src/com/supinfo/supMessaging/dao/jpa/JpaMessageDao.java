@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +24,9 @@ public class JpaMessageDao implements MessageDao {
 
     @Override
     public void sendMessage(Message message) {
+        if (message.getSendDate() == null) {
+            message.setSendDate(new Date());
+        }
         PersistHelper.persist(emf, message);
     }
 
@@ -52,6 +56,19 @@ public class JpaMessageDao implements MessageDao {
                     "OR m.transmitter = :u2 AND m.recipient = :u1");
             query.setParameter("u1", actualUser);
             query.setParameter("u2", contact);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<Message> getAdminMessage() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT m FROM Message m " +
+                    "WHERE m.transmitter = null AND m.recipient = null ");
+
             return query.getResultList();
         } finally {
             em.close();
