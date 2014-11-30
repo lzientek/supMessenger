@@ -12,10 +12,10 @@
 <%@ include file="/Partial/MenuPartial.jsp" %>
 <div class="container">
     <c:if test="${success}">
-        <p class="bg-success">Message send!!!</p>
+        <p class="bg-success bg">Message send!!!</p>
     </c:if>
     <c:if test="${not empty error}">
-        <p class="bg-danger">Error!! <c:out value="${error}"/></p>
+        <p class="bg-danger bg">Error!! <c:out value="${error}"/></p>
     </c:if>
     <form class="form-horizontal" role="form" action="Contact" method="post">
 

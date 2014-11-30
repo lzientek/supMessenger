@@ -8,20 +8,35 @@
 </head>
 <body>
 <%@ include file="/Partial/MenuPartial.jsp" %>
-<fieldset>
-    <legend>Login</legend>
-    <form method="post" action="Login">
-        <label for="username"> Username : </label>
-        <input id="username" name="username"/>
-        <label for="password"> Password : </label>
-        <input id="password" type="password" name="password"/>
-        <input type="submit"/>
-        <c:if test="${not empty error}">
-            <c:out value="${error}"/>
-        </c:if>
-        <br/>
+<div class="container">
+    <h2>Login</h2>
+    <c:if test="${not empty error}">
+        <p class="bg-danger bg"><c:out value="${error}"/></p>
+    </c:if>
+    <form class="form-horizontal" role="form" method="post" action="Login">
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label"> Username : </label>
+
+            <div class="col-sm-5">
+                <input class="form-control" id="username" name="username"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label"> Password : </label>
+
+            <div class="col-sm-5">
+                <input class="form-control" id="password" type="password" name="password"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-default" type="submit" value="Login"/>
+            </div>
+        </div>
+
+
         <a href="RegisterPage.jsp">Register now !</a>
     </form>
-</fieldset>
+</div>
 </body>
 </html>
