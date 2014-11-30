@@ -17,8 +17,10 @@ public interface UserDao {
     User getUserByIdWithContacts(Long id);
 
     List<User> getAllUsers();
-
+    
     void removeUser(User user);
 
     void updateUser(User user);
+    
+    int  getNumberOfUser();
 }

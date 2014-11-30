@@ -19,5 +19,8 @@
 </c:if>
 		<br/><br/>
 		<a href="Home.jsp" >Return home page</a>
+		
+		<%@ include file="/Footer.jsp" %>
+		
 </body>
 </html>

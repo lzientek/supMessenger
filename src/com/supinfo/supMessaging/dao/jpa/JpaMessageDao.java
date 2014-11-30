@@ -67,4 +67,17 @@ public class JpaMessageDao implements MessageDao {
     public void updateMessage(Message message) {
         PersistHelper.update(emf, message);
     }
+
+	@Override
+	public int getNumberOfMessage() {
+		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT COUNT(*) FROM Message");
+            return (int) query.getSingleResult();
+        } finally {
+            em.close();
+        }
+		
+	}
 }

@@ -26,5 +26,8 @@
         <input type="submit"/>
     </form>
 </fieldset>
+
+	<%@ include file="/Footer.jsp" %>
+	
 </body>
 </html>

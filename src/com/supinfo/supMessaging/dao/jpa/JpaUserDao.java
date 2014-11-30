@@ -90,4 +90,17 @@ public class JpaUserDao implements UserDao {
     public void updateUser(User user) {
         PersistHelper.update(emf, user);
     }
+
+	@Override
+	public int getNumberOfUser() {
+		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT COUNT(*) FROM User");
+            return (int) query.getSingleResult();
+        } finally {
+            em.close();
+        }
+		
+	}
 }
