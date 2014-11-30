@@ -35,7 +35,7 @@ public class HomeServlet extends HttpServlet {
 
         request.setAttribute("nbUser", lUserDao.getNumberOfUser());
         request.setAttribute("nbPost", lMessageDao.getNumberOfMessage());
-        request.getRequestDispatcher("/Home.jsp").forward(request, response);
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
     }
 
 	/**

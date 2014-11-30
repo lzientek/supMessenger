@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/Home.jsp").forward(request, response);
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
 
     }
 
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                     //on pose la session id!
                     request.getSession().setAttribute("userId", lUser.getId());
 
-                    request.getRequestDispatcher("/HomeConnected.jsp").forward(request, response);
+                    request.getRequestDispatcher("HomeConnected.jsp").forward(request, response);
 
                 } else {
                     throw new Exception("Bad password !");
