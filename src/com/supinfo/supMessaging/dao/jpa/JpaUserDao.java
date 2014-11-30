@@ -92,12 +92,12 @@ public class JpaUserDao implements UserDao {
     }
 
 	@Override
-	public int getNumberOfUser() {
-		// TODO Auto-generated method stub
+    public Long getNumberOfUser() {
+        // TODO Auto-generated method stub
 		EntityManager em = emf.createEntityManager();
         try {
             Query query = em.createQuery("SELECT COUNT(*) FROM User");
-            return (int) query.getSingleResult();
+            return (Long) query.getSingleResult();
         } finally {
             em.close();
         }

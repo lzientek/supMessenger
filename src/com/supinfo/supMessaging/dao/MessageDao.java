@@ -18,6 +18,6 @@ public interface MessageDao {
     void removeMessage(Message message);
 
     void updateMessage(Message message);
-    
-    int  getNumberOfMessage();
+
+    Long getNumberOfMessage();
 }

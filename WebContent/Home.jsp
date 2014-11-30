@@ -6,9 +6,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <%@ include file="/Style/HeaderStyle.jsp" %>
+
     <title>Home Page</title>
 </head>
 <body>
+<%@ include file="/Partial/MenuPartial.jsp" %>
 <fieldset>
     <legend>Login</legend>
     <form method="post" action="Login">
@@ -25,7 +28,7 @@
     </form>
 </fieldset>
 
-<%@ include file="/Footer.jsp" %>
+<%@ include file="/Partial/FooterPartial.jsp" %>
 
 </body>
 </html>
