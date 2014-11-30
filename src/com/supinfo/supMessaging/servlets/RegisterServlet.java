@@ -85,8 +85,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("error", e);
             request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
 		}
-		
-			
-	}
+
+    }
 
 }
