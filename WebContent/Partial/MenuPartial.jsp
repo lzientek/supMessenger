@@ -13,8 +13,12 @@
         <div class="navbar-collapse collapse" id="navbar" abp="10">
             <ul class="nav navbar-nav" abp="11">
                 <li class="active" abp="12"><a href="/Home" abp="13">Home</a></li>
-                <li abp="16"><a href="/Home" abp="17">Contact</a></li>
+                <c:if test="${empty sessionScope.userId}">
+                    <li abp="16"><a href="/Contact" abp="17">Contact</a></li>
 
+                    <li abp="16"><a href="/Login" abp="17">Login</a></li>
+                    <li abp="16"><a href="/Register" abp="17">Register</a></li>
+                </c:if>
             </ul>
 
         </div>
