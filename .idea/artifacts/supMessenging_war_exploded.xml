@@ -8,7 +8,9 @@
           <element id="module-output" name="supMessenging" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="antlr-2.7.6" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6 (2)" />
         </element>
       </element>
     </root>
