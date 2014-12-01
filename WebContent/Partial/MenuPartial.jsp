@@ -25,7 +25,8 @@
                     <li
                             <c:if test="${requestScope['javax.servlet.forward.servlet_path'] == '/Chat' }">class="active"</c:if> >
                         <a href="Chat">Chat</a></li>
-
+					<li>
+                        <a href="Profile">Profile</a></li>
                     <li>
                         <a href="Logout">Logout</a></li>
                 </c:if>

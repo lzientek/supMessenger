@@ -34,7 +34,6 @@
             </div>
         </div>
 
-
         <a href="Register">Register now !</a>
     </form>
 </div>
