@@ -2,6 +2,7 @@ package com.supinfo.supMessaging.servlets;
 
 import com.supinfo.supMessaging.dao.DaoFactory;
 import com.supinfo.supMessaging.dao.UserDao;
+import com.supinfo.supMessaging.dao.jpa.JpaUserDao;
 import com.supinfo.supMessaging.entities.User;
 import com.supinfo.supMessaging.helpers.EmailValidator;
 
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -47,7 +49,16 @@ public class RegisterServlet extends HttpServlet {
 			User lUser = new User();
 
             if (request.getParameter("username") != null) {
-                lUser.setUserName(request.getParameter("username"));
+            	
+            	UserDao lUserDao = DaoFactory.getUserDao();
+            	if(lUserDao.findUserByUsername(request.getParameter("username")) == null)
+            	{
+            		lUser.setUserName(request.getParameter("username"));
+            	}
+            	else
+            	{
+            		throw new Exception("User already exist !");
+            	}
             }
 			else
 			{
@@ -90,8 +101,8 @@ public class RegisterServlet extends HttpServlet {
 			
 		} catch (Exception e) {
             request.setAttribute("success", false);
-            request.setAttribute("error", e);
-            request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
+            request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("RegisterPage.jsp").forward(request, response);
 		}
 
     }
