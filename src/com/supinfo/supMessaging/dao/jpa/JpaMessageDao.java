@@ -51,9 +51,11 @@ public class JpaMessageDao implements MessageDao {
         try {
             //todo : faire des tests de performance
             Query query = em.createQuery("SELECT m FROM Message m " +
-                    "LEFT JOIN FETCH m.transmitter,m.recipient " +
+                    "JOIN m.transmitter " +
+                    "JOIN m.recipient " +
                     "WHERE m.transmitter = :u1 AND m.recipient = :u2 " +
-                    "OR m.transmitter = :u2 AND m.recipient = :u1");
+                    "OR m.transmitter = :u2 AND m.recipient = :u1 " +
+                    "ORDER BY m.sendDate ");
             query.setParameter("u1", actualUser);
             query.setParameter("u2", contact);
             return query.getResultList();

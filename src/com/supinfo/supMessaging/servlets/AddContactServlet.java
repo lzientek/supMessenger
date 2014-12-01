@@ -26,8 +26,10 @@ public class AddContactServlet extends HttpServlet {
             User actualUser = DaoFactory.getUserDao().getUserById((Long) req.getSession().getAttribute(Constant.userSession));
 
             DaoFactory.getContactsDao().addContacts(actualUser, newContact);
+            resp.sendRedirect("Home");
         } catch (Exception ex) {
-            ex.getMessage();
+            req.setAttribute("error", ex.getMessage());
+            req.getRequestDispatcher("Search.jsp").forward(req, resp);
         }
     }
 }
