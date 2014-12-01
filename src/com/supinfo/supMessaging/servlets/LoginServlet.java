@@ -3,6 +3,7 @@ package com.supinfo.supMessaging.servlets;
 import com.supinfo.supMessaging.dao.DaoFactory;
 import com.supinfo.supMessaging.dao.UserDao;
 import com.supinfo.supMessaging.entities.User;
+import com.supinfo.supMessaging.helpers.Constant;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,8 +48,8 @@ public class LoginServlet extends HttpServlet {
             if (lUser != null) {
                 if (lUser.checkPassword(request.getParameter("password"))) {
                     //on pose la session id!
-                    request.getSession().setAttribute("userId", lUser.getId());
-                    response.sendRedirect("Home.jsp");
+                    request.getSession().setAttribute(Constant.userSession, lUser.getId());
+                    response.sendRedirect("Home");
 
                 } else {
                     throw new Exception("Bad password !");

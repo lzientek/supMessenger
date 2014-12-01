@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.util.Date;
 
@@ -67,8 +66,7 @@ public class RegisterServlet extends HttpServlet {
 
             if (request.getParameter("mail") != null) {
             	EmailValidator lEmail = new EmailValidator();
-            	if(!lEmail.validate(request.getParameter("mail")))
-            	{
+                if (lEmail.validate(request.getParameter("mail"))) {
             		lUser.setMail(request.getParameter("mail"));
             	}
             	else
