@@ -27,7 +27,6 @@
     </form>
 </fieldset>
 
-<%@ include file="/Partial/FooterPartial.jsp" %>
 
 </body>
 </html>

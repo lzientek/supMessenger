@@ -3,12 +3,14 @@ package com.supinfo.supMessaging.servlets;
 import com.supinfo.supMessaging.dao.DaoFactory;
 import com.supinfo.supMessaging.dao.UserDao;
 import com.supinfo.supMessaging.entities.User;
+import com.supinfo.supMessaging.helpers.EmailValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -55,7 +57,7 @@ public class RegisterServlet extends HttpServlet {
 
             if ((request.getParameter("password") != null)
                     && (request.getParameter("password2") != null)
-                    && (request.getParameter("password").equals(request.getParameter("password2")))) {
+                    && (request.getParameter("password").equals(request.getParameter("password2")))) {                    	
                 lUser.setUnEncryptPassWord(request.getParameter("password"));
             }
 			else
@@ -64,7 +66,15 @@ public class RegisterServlet extends HttpServlet {
 			}
 
             if (request.getParameter("mail") != null) {
-                lUser.setMail(request.getParameter("mail"));
+            	EmailValidator lEmail = new EmailValidator();
+            	if(!lEmail.validate(request.getParameter("mail")))
+            	{
+            		lUser.setMail(request.getParameter("mail"));
+            	}
+            	else
+    			{
+                    throw new Exception("Bad mail !");
+                }
             }
 			else
 			{

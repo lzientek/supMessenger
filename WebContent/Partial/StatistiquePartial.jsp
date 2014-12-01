@@ -2,12 +2,9 @@
          pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<br/>
-<br/>
-<br/>
 
 <fieldset>
-	<legend>Info</legend>
+	<legend>Statistique</legend>
 	<p>
 		Numbers of User : 
 		<c:if test="${empty nbUser}" >	
@@ -30,12 +27,3 @@
 	<br/>	
 </fieldset>
 
-<br/>
-<br/>
-<br/>
-
-<p>
-	<a href="/Home" >Home</a>
-    <a href="../Contact.jsp">Contact</a>
-
-<p>

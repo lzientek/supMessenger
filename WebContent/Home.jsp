@@ -14,10 +14,8 @@
 <%@ include file="Partial/MenuPartial.jsp" %>
 
 <c:if test="${empty sessionScope.userId}">
-    <%@ include file="Partial/FooterPartial.jsp" %>
+    <%@ include file="Partial/StatistiquePartial.jsp" %>
 </c:if>
-<c:if test="${not empty sessionScope.userId}">
-    <%@ include file="Partial/FooterConnectedPartial.jsp" %>
-</c:if>
+
 </body>
 </html>

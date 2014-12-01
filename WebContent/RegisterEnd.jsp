@@ -9,6 +9,7 @@
     <title>Insert title here</title>
 </head>
 <body>
+
 <c:if test="${success eq true}">
     <p> Successfull registred ! </p>
 </c:if>
@@ -17,10 +18,7 @@
 
     <p> Error : <c:out value="${error.message}"></c:out></p>
 </c:if>
-<br/><br/>
-<a href="Home.jsp">Return home page</a>
 
-<%@ include file="Partial/FooterPartial.jsp" %>
 
 </body>
 </html>
