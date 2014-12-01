@@ -87,7 +87,7 @@ public class JpaMessageDao implements MessageDao {
         PersistHelper.update(emf, message);
     }
 
-	@Override
+    @Override
     public Long getNumberOfMessage() {
 
         EntityManager em = emf.createEntityManager();
@@ -97,6 +97,7 @@ public class JpaMessageDao implements MessageDao {
         } finally {
             em.close();
         }
-		
-	}
+
+    }
+
 }

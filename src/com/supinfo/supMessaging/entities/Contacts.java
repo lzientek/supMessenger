@@ -2,7 +2,6 @@ package com.supinfo.supMessaging.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created on the 27/11/2014.

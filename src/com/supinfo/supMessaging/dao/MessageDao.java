@@ -22,4 +22,5 @@ public interface MessageDao {
     void updateMessage(Message message);
 
     Long getNumberOfMessage();
+
 }

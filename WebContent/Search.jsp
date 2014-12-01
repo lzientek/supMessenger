@@ -21,7 +21,7 @@
     </form>
 
     <c:if test="${not empty error}">
-        <p class="bg bg-danger"><c:out value="${error}"/></p>
+        <p class="alert alert-danger"><c:out value="${error}"/></p>
     </c:if>
     <c:if test="${not empty results}">
         <table class="table table-striped">

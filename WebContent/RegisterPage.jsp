@@ -12,8 +12,8 @@
 <div class="container">
 
 	 <c:if test="${not empty error}">
-	        <p class="bg-danger bg"><c:out value="${error}"/></p>
-	 </c:if>
+         <p class="alert alert-danger"><c:out value="${error}"/></p>
+     </c:if>
 	
 	<fieldset>
 	    <legend>Register</legend>

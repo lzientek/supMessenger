@@ -12,8 +12,8 @@
 <%@ include file="Partial/MenuPartial.jsp" %>
 <div class="container">
 
-	<p class="bg-danger bg"> Register Sucess  </p>
-	
+    <p class="alert alert-success"> Register Sucess </p>
+
 </div>
  
 </body>

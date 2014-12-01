@@ -11,7 +11,7 @@
 <div class="container">
     <h2>Login</h2>
     <c:if test="${not empty error}">
-        <p class="bg-danger bg"><c:out value="${error}"/></p>
+        <p class="alert alert-danger"><c:out value="${error}"/></p>
     </c:if>
     <form class="form-horizontal" role="form" method="post" action="Login">
         <div class="form-group">

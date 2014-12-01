@@ -29,12 +29,14 @@ public class ChatServlet extends HttpServlet {
         try {
 
             if (contact != null) {
+                req.setAttribute("selectedContact", contact);
                 List<Message> messages = DaoFactory.getMessageDao().getMessagesByUsers(actualUser, contact);
                 if (messages.size() == 0) {
                     throw new Exception("No Message");
                 }
                 req.setAttribute("messages", messages);
-                }
+
+            }
 
         } catch (Exception ex) {
             req.setAttribute("error", ex.getMessage());

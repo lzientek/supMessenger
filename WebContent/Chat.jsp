@@ -9,8 +9,14 @@
     <%@ include file="Style/HeaderStyle.jsp" %>
 
     <title>Home Page</title>
+    <script type="application/javascript">
+        function scrollDown() {
+            $("#scrollDiv").scrollTop($("#scrollDiv").prop("scrollHeight"));
+
+        }
+    </script>
 </head>
-<body>
+<body onload="scrollDown()">
 <%@ include file="Partial/MenuPartial.jsp" %>
 <div class="container">
 
@@ -18,25 +24,32 @@
         <div class="row">
             <div class="col-md-11" style="height: 600px;overflow-y: auto;">
                 <%-- list de contact --%>
+                    <div class="list-group">
+                        <c:forEach items="${user.contactsBinding}" var="contact">
+                            <a class="list-group-item <c:if test="${selectedContact.id == contact.contact.id}">active</c:if>"
+                               href="Chat?contactId=<c:out value="${contact.contact.id}"/>">
+                                <h4><c:out value="${contact.contact.userName}"/>
+                                </h4>
 
-                <c:forEach items="${user.contactsBinding}" var="contact">
-                    <div class="row">
-                        <h2><a href="Chat?contactId=<c:out value="${contact.contact.id}"/>">
-                            <c:out value="${contact.contact.userName}"/></a></h2>
+                                <p><c:out value="${contact.contact.mail}"/></p>
+
+                            </a>
+                        </c:forEach>
                     </div>
-                </c:forEach>
-
             </div>
         </div>
     </div>
 
 
     <div class="col-md-7">
+        <c:if test="${not empty sendError}">
+            <p class="alert alert-danger"><c:out value="${sendError}"/></p>
+        </c:if>
         <%-- list de message --%>
         <div class="row">
-            <div class="col-sm-11" style="height: 400px;overflow-y: auto;">
+            <div class="col-sm-11" style="height: 400px;overflow-y: auto;" id="scrollDiv">
                 <c:if test="${not empty error}">
-                    <p class="bg"><c:out value="${error}"/></p>
+                    <p class="alert alert-warning"><c:out value="${error}"/></p>
                 </c:if>
                 <c:if test="${not empty messages}">
                     <c:forEach items="${messages}" var="message">

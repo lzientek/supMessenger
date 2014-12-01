@@ -105,4 +105,5 @@ public class User implements Serializable {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
 }
