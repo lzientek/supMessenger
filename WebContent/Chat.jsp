@@ -47,37 +47,80 @@
         </c:if>
         <%-- list de message --%>
         <div class="row">
-            <div class="col-sm-11" style="height: 400px;overflow-y: auto;" id="scrollDiv">
+            <div class="col-sm-11">
                 <c:if test="${not empty error}">
                     <p class="alert alert-warning"><c:out value="${error}"/></p>
                 </c:if>
                 <c:if test="${not empty messages}">
-                    <c:forEach items="${messages}" var="message">
-                        <div class="row">
-                            <h2><c:out value="${message.transmitter.userName}"/></h2>
 
-                            <p><c:out value="${message.message}"/></p>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body msg_container_base" id="scrollDiv">
+                            <c:forEach items="${messages}" var="message">
+                                <c:if test="${message.transmitter.id == user.id}">
+                                    <%-- message envoyé !--%>
+
+                                    <div class="row msg_container base_sent">
+                                        <div class="col-md-10 col-xs-10 msg_no_marge-right">
+                                            <div class="messages msg_sent">
+
+                                                <p><c:out value="${message.messageHtml}"/></p>
+                                                <time datetime="2009-11-13T20:00"><c:out
+                                                        value="${message.transmitter.userName}"/> &#8226; <c:out
+                                                        value="${message.sendDate}"/>
+                                                </time>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-xs-2 avatar msg_no_marge-left">
+                                            <img class=" img-responsive "
+                                                 src="<c:out value="${message.transmitter.gravatarUrl}"/>"
+                                                    >
+                                        </div>
+                                    </div>
+                                </c:if>
+                                <c:if test="${message.transmitter.id != user.id}">
+                                    <%-- message recu !--%>
+                                    <div class="row msg_container base_receive">
+                                        <div class="col-md-2 col-xs-2 avatar msg_no_marge-right">
+                                            <img class=" img-responsive "
+                                                 src="<c:out value="${message.transmitter.gravatarUrl}"/>"
+                                                    >
+                                        </div>
+                                        <div class="col-md-10 col-xs-10 msg_no_marge-left">
+                                            <div class="messages msg_receive">
+                                                <p><c:out escapeXml="false" value="${message.messageHtml}"/></p>
+                                                <time datetime="2009-11-13T20:00"><c:out
+                                                        value="${message.transmitter.userName}"/> &#8226; <c:out
+                                                        value="${message.sendDate}"/>
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
+
+                            </c:forEach>
                         </div>
-                    </c:forEach>
+                    </div>
+
+
                 </c:if>
             </div>
         </div>
         <div class="row">
             <form class="form-horizontal" role="form" action="" method="post">
-                <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Message</label>
+                <div class="col-sm-11">
 
-                    <div class="col-sm-7">
-                        <textarea rows="4" class="form-control" name="message" id="message"
+                    <div class="input-group input-group-lg" style="height: 100px;">
+
+                        <textarea style="height: 100px;" rows="2" class="form-control" name="message" id="message"
                                   placeholder="Message..."> </textarea>
+                        <span style="height: 100px;" class="input-group-btn">
+                            <button style="height: 100px;" type="submit" class="btn btn-primary">Send</button>
+                            </span>
                     </div>
+
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Send</button>
-                    </div>
-                </div>
             </form>
         </div>
     </div>

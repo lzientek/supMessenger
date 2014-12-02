@@ -65,4 +65,8 @@ public class Message {
     public void setSendDate(Date sendDate) {
         this.sendDate = sendDate;
     }
+
+    public String getMessageHtml() {
+        return message.replace("\n", "<br/>");
+    }
 }
