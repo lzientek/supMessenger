@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class Logout
  */
-@WebServlet(urlPatterns={"/Contact,/Auth/Contact"})
+@WebServlet(urlPatterns={"/Contact","/Auth/Contact"})
 public class ContactServlet extends HttpServlet {
 
     @Override

@@ -17,7 +17,7 @@ import com.supinfo.supMessaging.helpers.Constant;
 /**
  * Servlet Filter implementation class NoAuthFilter
  */
-@WebFilter(urlPatterns={"/Home,/Login,/RegisterEnd,/RegisterPage"})
+@WebFilter(urlPatterns={"/Home","/Login","/RegisterEnd","/RegisterPage"})
 public class NoAuthFilter implements Filter {
 
     /**

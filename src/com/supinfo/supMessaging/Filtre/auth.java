@@ -50,12 +50,12 @@ public class auth implements Filter {
 			}
 			else
 			{
-				lresponse.sendRedirect("../Home");
+				lresponse.sendRedirect("../Login");
 			}		
 		}
 		catch(Exception ex)
 		{
-			lresponse.sendRedirect("../Home");
+			lresponse.sendRedirect("../Login");
 		}
 	}
 
