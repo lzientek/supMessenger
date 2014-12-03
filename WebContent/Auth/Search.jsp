@@ -33,10 +33,12 @@
                 <tr>
                     <td><c:out value="${result.userName}"/></td>
                     <td>
-                        <form method="post" action="AddContact">
-                            <input type="hidden" name="contactId" value="<c:out value="${result.id}" />">
-                            <button type="submit" class="btn btn-success">Add</button>
-                        </form>
+                        <c:if test="${result.id != user.id}">
+                            <form method="post" action="AddContact">
+                                <input type="hidden" name="contactId" value="<c:out value="${result.id}" />">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </form>
+                        </c:if>
                     </td>
                 </tr>
 

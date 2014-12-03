@@ -1,6 +1,7 @@
 package com.supinfo.supMessaging.servlets;
 
 import com.supinfo.supMessaging.dao.DaoFactory;
+import com.supinfo.supMessaging.entities.Contacts;
 import com.supinfo.supMessaging.entities.User;
 import com.supinfo.supMessaging.helpers.Constant;
 
@@ -17,13 +18,20 @@ public class AddContactServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
+
             Long id = Long.parseLong(req.getParameter("contactId"));
             if (id == null || id == 0) {
                 throw new Exception("empty id!");
             }
 
             User newContact = DaoFactory.getUserDao().getUserById(id);
-            User actualUser = DaoFactory.getUserDao().getUserById((Long) req.getSession().getAttribute(Constant.userSession));
+            User actualUser = DaoFactory.getUserDao().getUserByIdWithContacts((Long) req.getSession().getAttribute(Constant.userSession));
+
+            for (Contacts c : actualUser.getContactsBinding()) {
+                if (c.getContact().getId() == newContact.getId()) {
+                    throw new Exception("Contact already add!");
+                }
+            }
 
             DaoFactory.getContactsDao().addContacts(actualUser, newContact);
             resp.sendRedirect("Home");

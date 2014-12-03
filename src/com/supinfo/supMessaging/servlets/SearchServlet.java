@@ -2,6 +2,7 @@ package com.supinfo.supMessaging.servlets;
 
 import com.supinfo.supMessaging.dao.DaoFactory;
 import com.supinfo.supMessaging.entities.User;
+import com.supinfo.supMessaging.helpers.Constant;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +25,8 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String toSearch = req.getParameter("search");
+        User actualUser = DaoFactory.getUserDao().getUserByIdWithContacts((Long) req.getSession().getAttribute(Constant.userSession));
+        req.setAttribute("user", actualUser);
         try {
             if (toSearch == null || toSearch.trim().isEmpty()) {
                 throw new Exception("Empty search");
