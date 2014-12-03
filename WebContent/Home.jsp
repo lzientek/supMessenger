@@ -11,6 +11,11 @@
     <title>Home Page</title>
 </head>
 <body>
+
+<div class="container">
+	<p>Welcome to SupMessaging ! The new online and most famous messaging system.</p>
+</div>
+
 <%@ include file="Partial/MenuPartial.jsp" %>
 
 <c:if test="${empty sessionScope.userId}">

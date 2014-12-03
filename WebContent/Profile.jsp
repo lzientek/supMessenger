@@ -11,37 +11,40 @@
 <%@ include file="Partial/MenuPartial.jsp" %>
 <div class="container">
 	
+	<img alt="Mon Gravatar !!! " src="${urlGravatar }" />
 	
-	
-	<img alt="Mon Gravatar !!! " src="${urlGravatar }" >
 	<br/>
-	
+
 	<form class="form-horizontal" role="form" method="post" action="ModifProfile">
 	
+	<div class="form-group">
 		<label for="username" class="col-sm-2 control-label"> Username : </label>
 		<div class="col-sm-5">
                	<input readonly="readonly" class="form-control" type="text" id="username" name="username" value="${username}" />
        	</div>
-       	<br/>
+      </div> 
 		
+		<div class="form-group">
 		<label for="password" class="col-sm-2 control-label"> Password : </label>
 		<div class="col-sm-5">
                	<input class="form-control" type="password" id="password" name="password" value="${password}"  />
        	</div>
-       	<br/>
+   </div>
        	
+       	<div class="form-group">
        	<label for=mail class="col-sm-2 control-label"> E-mail : </label>
 		<div class="col-sm-5">
                	<input class="form-control" type="text" id="mail" name="mail" value="${mail}" />
        	</div>
-       	<br/>
+   </div>
        	
+       	<div class="form-group">
        	<div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input class="btn btn-default" type="submit" value="ModifProfile"/>
             </div>
     	</div>
-    	<br/>
+ </div>
     	
 	</form>
 	
