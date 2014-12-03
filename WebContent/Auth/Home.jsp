@@ -12,7 +12,26 @@
 </head>
 <body>
 <%@ include file="../Partial/MenuPartial.jsp" %>
+<div class="container">
+    <c:forEach items="${result}" var="message">
+        <c:set var="contact" value="${message.value.recipient}"/>
+        <c:set var="isRecipient" value="false"/>
+        <c:if test="${message.value.recipient.id == sessionScope.userId}">
+            <c:set var="contact" value="${message.value.transmitter}"/>
+            <c:set var="isRecipient" value="true"/>
+        </c:if> <c:set var="isRecipient" value="false"/>
 
 
+        <div class="row">
+            <h4><a href="Chat?contactId=<c:out value="${contact.id}"/>">
+                <c:out value="${message.value.transmitter.userName}"/> &gt;
+                <c:out value="${message.value.recipient.userName}"/>
+            </a>
+            </h4>
+
+            <p><c:out value="${message.value.message}"/></p>
+        </div>
+    </c:forEach>
+</div>
 </body>
 </html>

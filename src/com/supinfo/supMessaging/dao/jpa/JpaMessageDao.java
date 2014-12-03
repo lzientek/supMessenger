@@ -49,7 +49,6 @@ public class JpaMessageDao implements MessageDao {
     public List<Message> getMessagesByUsers(User actualUser, User contact) {
         EntityManager em = emf.createEntityManager();
         try {
-            //todo : faire des tests de performance
             Query query = em.createQuery("SELECT m FROM Message m " +
                     "JOIN m.transmitter " +
                     "JOIN m.recipient " +
@@ -98,6 +97,25 @@ public class JpaMessageDao implements MessageDao {
             em.close();
         }
 
+    }
+
+    @Override
+    public List<Message> getMessageAccueil(User actualUser) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT m FROM Message m " +
+                    "JOIN m.transmitter " +
+                    "JOIN m.recipient " +
+                    "WHERE m.transmitter = :u1 " +
+                    "OR m.recipient = :u1 " +
+                    "ORDER BY m.sendDate DESC " +
+                    "GROUP BY m.recipient,m.transmitter ");
+
+            query.setParameter("u1", actualUser);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
 }

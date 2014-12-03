@@ -23,5 +23,5 @@ public interface MessageDao {
 
     Long getNumberOfMessage();
 
-
+    List<Message> getMessageAccueil(User actualUser);
 }
