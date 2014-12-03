@@ -33,6 +33,22 @@
                 <input class="form-control" type="password" id="password" name="password" value="${password}"/>
             </div>
         </div>
+        
+        <div class="form-group">
+            <label for=mail class="col-sm-2 control-label"> First Name : </label>
+
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="mail" name="mail" value="${firstName}"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for=mail class="col-sm-2 control-label"> Last Name : </label>
+
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="mail" name="mail" value="${lastName}"/>
+            </div>
+        </div>
 
         <div class="form-group">
             <label for=mail class="col-sm-2 control-label"> E-mail : </label>

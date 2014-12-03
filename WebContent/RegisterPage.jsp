@@ -19,7 +19,7 @@
 	    <legend>Register</legend>
 	    <form class="form-horizontal" role="form" method="post" action="Register">
 			<div class="form-group">
-				<label for="username" class="col-sm-2 control-label"> Username : </label>
+				<label for="username" class="col-sm-2 control-label"> username : </label>
             	<div class="col-sm-5">
                 	<input class="form-control" id="username" name="username"/>
             	</div>
@@ -45,7 +45,21 @@
                 	<input class="form-control" id="mail" type="text" name="mail"/>
             	</div>
 			</div>
-
+			
+			<div class="form-group">
+				<label for="mail" class="col-sm-2 control-label"> first name : </label>
+            	<div class="col-sm-5">
+                	<input class="form-control" id="firstName" type="text" name="firstName"/>
+            	</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="mail" class="col-sm-2 control-label"> last name : </label>
+            	<div class="col-sm-5">
+                	<input class="form-control" id="lastName" type="text" name="lastName"/>
+            	</div>
+			</div>
+				
 	     	<div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input class="btn btn-default" type="submit" value="Register"/>
@@ -54,6 +68,19 @@
 	    </form>
 	</fieldset>
 </div>
+ 
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="_js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="_js/bootstrap.js"></script>
+<script type="text/javascript">
+
+		$(function(){
+	   $('.datepicker').datepicker({
+		      format: 'mm-dd-yyyy'
+		    });
+		});
+</script>
+
  
 </body>
 </html>

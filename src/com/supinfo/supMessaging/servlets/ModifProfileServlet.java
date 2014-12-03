@@ -67,6 +67,25 @@ public class ModifProfileServlet extends HttpServlet {
 			}
 		}
 		
+		if(!lUser.getFirstname().equals(request.getParameter("firstName")))
+		{
+			String lfName = request.getParameter("firstName").replaceAll(" ","") ;
+			if(!lfName.equals(""))
+			{
+				lUser.setFirstname(lfName);
+				lDochange = true;
+			}
+		}
+		
+		if(!lUser.getFirstname().equals(request.getParameter("lastName")))
+		{
+			String lLName = request.getParameter("lastName").replaceAll(" ","") ;
+			if(!lLName.equals(""))
+			{
+				lUser.setLastname(lLName);
+				lDochange = true;
+			}
+		}
 		
 		if(lDochange)
 		{

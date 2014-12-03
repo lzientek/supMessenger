@@ -48,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
 			
 			User lUser = new User();
 
-            if (request.getParameter("username") != null) {
+            if (request.getParameter("username") != null && !request.getParameter("username").replaceAll(" ", "").equals("") ) {
             	
             	UserDao lUserDao = DaoFactory.getUserDao();
             	if(lUserDao.findUserByUsername(request.getParameter("username")) == null)
@@ -65,7 +65,7 @@ public class RegisterServlet extends HttpServlet {
 				throw new Exception("Bad username !");
 			}
 
-            if ((request.getParameter("password") != null)
+            if ((request.getParameter("password") != null && !request.getParameter("password").replaceAll(" ", "").equals(""))
                     && (request.getParameter("password2") != null)
                     && (request.getParameter("password").equals(request.getParameter("password2")))) {                    	
                 lUser.setUnEncryptPassWord(request.getParameter("password"));
@@ -88,6 +88,26 @@ public class RegisterServlet extends HttpServlet {
 			else
 			{
                 throw new Exception("Bad mail !");
+            }
+            
+            
+            if(request.getParameter("firstName") != null && !request.getParameter("firstName").replaceAll(" ", "").equals("") )
+            {
+            	lUser.setFirstname(request.getParameter("firstName").replaceAll(" ", ""));
+            }
+            else
+            {
+            	 throw new Exception("Bad First Name !");
+            }
+
+            
+            if(request.getParameter("lastName") != null && !request.getParameter("lastName").replaceAll(" ", "").equals("") )
+            {
+            	lUser.setFirstname(request.getParameter("lastName").replaceAll(" ", ""));
+            }
+            else
+            {
+            	 throw new Exception("Bad Last Name !");
             }
 			
 			Date lDate = new Date();

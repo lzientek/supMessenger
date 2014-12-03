@@ -55,6 +55,8 @@ public class ProfileServlet extends HttpServlet {
         request.setAttribute("password", "MyPasswordIsHide");
         request.setAttribute("mail", lUser.getMail());
         request.setAttribute("urlGravatar", lUser.getGravatarUrl());
+        request.setAttribute("firstName", lUser.getFirstname());
+        request.setAttribute("lastName", lUser.getLastname());
 
         request.getRequestDispatcher("Profile.jsp").forward(request, response);
 

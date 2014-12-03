@@ -26,6 +26,27 @@ public class User implements Serializable {
     private String mail;
 
     private Date inscriptionDate;
+    
+    public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	private String firstname;
+    
+    private String lastname;
+    
 
     @OneToMany(mappedBy = "user")
     private List<Contacts> contacts;

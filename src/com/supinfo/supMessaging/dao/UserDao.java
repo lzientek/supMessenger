@@ -25,4 +25,5 @@ public interface UserDao {
     void updateUser(User user);
 
     Long getNumberOfUser();
+    
 }
