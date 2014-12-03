@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 if (lUser.checkPassword(request.getParameter("password"))) {
                     //on pose la session id!
                     request.getSession().setAttribute(Constant.userSession, lUser.getId());
-                    response.sendRedirect("Home");
+                    response.sendRedirect("Auth/Home");
 
                 } else {
                     throw new Exception("Bad password !");

@@ -64,7 +64,7 @@
                                         <div class="col-md-10 col-xs-10 msg_no_marge-right">
                                             <div class="messages msg_sent">
 
-                                                <p><c:out value="${message.messageHtml}"/></p>
+                                                <p><c:out escapeXml="false" value="${message.messageHtml}"/></p>
                                                 <time datetime="2009-11-13T20:00"><c:out
                                                         value="${message.transmitter.userName}"/> &#8226; <c:out
                                                         value="${message.sendDate}"/>
