@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Search")
+@WebServlet("/Auth/Search")
 public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

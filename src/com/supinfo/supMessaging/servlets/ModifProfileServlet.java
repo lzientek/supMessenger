@@ -1,22 +1,21 @@
 package com.supinfo.supMessaging.servlets;
 
-import java.io.IOException;
+import com.supinfo.supMessaging.dao.DaoFactory;
+import com.supinfo.supMessaging.dao.UserDao;
+import com.supinfo.supMessaging.entities.User;
+import com.supinfo.supMessaging.helpers.EmailValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.supinfo.supMessaging.dao.DaoFactory;
-import com.supinfo.supMessaging.dao.UserDao;
-import com.supinfo.supMessaging.entities.User;
-import com.supinfo.supMessaging.helpers.EmailValidator;
+import java.io.IOException;
 
 /**
  * Servlet implementation class ModifProfileServlet
  */
-@WebServlet("/ModifProfile")
+@WebServlet("/Auth/ModifProfile")
 public class ModifProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

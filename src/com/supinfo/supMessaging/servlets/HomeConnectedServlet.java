@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class Home
  */
-@WebServlet("/HomeC")
+@WebServlet("/Auth/Home")
 public class HomeConnectedServlet extends HttpServlet {
 
     /**

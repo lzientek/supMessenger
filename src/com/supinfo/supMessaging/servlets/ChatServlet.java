@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Servlet implementation class Home
  */
-@WebServlet("/Chat")
+@WebServlet("/Auth/Chat")
 public class ChatServlet extends HttpServlet {
 
     private User contact;

@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class ProfileServlet
  */
-@WebServlet("/Profile")
+@WebServlet("/Auth/Profile")
 public class ProfileServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
