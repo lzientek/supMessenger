@@ -4,10 +4,10 @@
 <html>
 <head>
     <title>Search</title>
-    <%@ include file="Style/HeaderStyle.jsp" %>
+    <%@ include file="../Style/HeaderStyle.jsp" %>
 </head>
 <body>
-<%@ include file="Partial/MenuPartial.jsp" %>
+<%@ include file="../Partial/MenuPartial.jsp" %>
 <div class="container">
     <h2>Search a contact</h2>
 

@@ -6,12 +6,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <%@ include file="Style/HeaderStyle.jsp" %>
+    <%@ include file="../Style/HeaderStyle.jsp" %>
 
     <title>Home Page</title>
 </head>
 <body>
-<%@ include file="Partial/MenuPartial.jsp" %>
+<%@ include file="../Partial/MenuPartial.jsp" %>
 
 
 </body>

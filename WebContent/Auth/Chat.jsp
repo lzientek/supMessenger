@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <%@ include file="Style/HeaderStyle.jsp" %>
+    <%@ include file="../Style/HeaderStyle.jsp" %>
 
     <title>Home Page</title>
     <script type="application/javascript">
@@ -17,7 +17,7 @@
     </script>
 </head>
 <body onload="scrollDown()">
-<%@ include file="Partial/MenuPartial.jsp" %>
+<%@ include file="../Partial/MenuPartial.jsp" %>
 <div class="container">
 
     <div class="col-md-4">

@@ -18,7 +18,7 @@ public class HomeConnectedServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("HomeC.jsp").forward(request, response);
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
     }
 
     /**
