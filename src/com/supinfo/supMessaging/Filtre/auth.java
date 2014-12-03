@@ -17,7 +17,7 @@ import com.supinfo.supMessaging.helpers.Constant;
 /**
  * Servlet Filter implementation class auth
  */
-@WebFilter("/Auth")
+@WebFilter("/Auth/*")
 public class auth implements Filter {
 
     /**
