@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -101,18 +102,31 @@ public class JpaMessageDao implements MessageDao {
 
     @Override
     public List<Message> getMessageAccueil(User actualUser) {
+        List<Message> resultlist = new ArrayList<Message>();
+        for (int i = 0; i < actualUser.getContactsBinding().size(); i++) {
+            Message msg = getMessageByUsers(actualUser, actualUser.getContactsBinding().get(i).getContact());
+            if (msg != null) {
+                resultlist.add(msg);
+            }
+        }
+        return resultlist;
+    }
+
+    private Message getMessageByUsers(User actualUser, User contact) {
         EntityManager em = emf.createEntityManager();
         try {
             Query query = em.createQuery("SELECT m FROM Message m " +
                     "JOIN m.transmitter " +
                     "JOIN m.recipient " +
-                    "WHERE m.transmitter = :u1 " +
-                    "OR m.recipient = :u1 " +
-                    "ORDER BY m.sendDate DESC " +
-                    "GROUP BY m.recipient,m.transmitter ");
-
+                    "WHERE m.transmitter = :u1 AND m.recipient = :u2 " +
+                    "OR m.transmitter = :u2 AND m.recipient = :u1 " +
+                    "ORDER BY m.sendDate desc");
             query.setParameter("u1", actualUser);
-            return query.getResultList();
+            query.setParameter("u2", contact);
+            query.setMaxResults(1);
+            return (Message) query.getResultList().get(0);
+        } catch (Exception ex) {
+            return null;
         } finally {
             em.close();
         }

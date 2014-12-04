@@ -65,7 +65,7 @@
                                             <div class="messages msg_sent">
 
                                                 <p><c:out escapeXml="false" value="${message.messageHtml}"/></p>
-                                                <time datetime="2009-11-13T20:00"><c:out
+                                                <time datetime="<c:out value="${message.sendDate}" />"><c:out
                                                         value="${message.transmitter.userName}"/> &#8226; <c:out
                                                         value="${message.sendDate}"/>
                                                 </time>

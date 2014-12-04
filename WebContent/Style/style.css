@@ -63,6 +63,19 @@ body {
     max-width: 100%;
 }
 
+.well {
+    padding-right: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.well h4 {
+    margin-bottom: 1px;
+    margin-top: 0;
+}
+
 .base_receive > .avatar::after {
     content: "";
     position: absolute;
@@ -83,6 +96,17 @@ body {
 .messages > time {
     font-size: 11px;
     color: #ccc;
+}
+
+.well time {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.well p {
+    margin-bottom: 7px;
+    margin-left: 5px;
+    color: #555;
 }
 
 .msg_sent > time {

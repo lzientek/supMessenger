@@ -65,11 +65,12 @@ public class ChatServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             getUsers(request);
+            getValues(request, response);
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
         }
 
-        getValues(request, response);
+
         request.getRequestDispatcher("Chat.jsp").forward(request, response);
     }
 

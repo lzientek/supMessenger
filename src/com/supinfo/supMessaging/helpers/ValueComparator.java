@@ -3,19 +3,13 @@ package com.supinfo.supMessaging.helpers;
 import com.supinfo.supMessaging.entities.Message;
 
 import java.util.Comparator;
-import java.util.Map;
 
-public class ValueComparator implements Comparator<Long> {
+public class ValueComparator implements Comparator<Message> {
 
-    Map<Long, Message> base;
-
-    public ValueComparator(Map<Long, Message> base) {
-        this.base = base;
-    }
 
     // Note: this comparator imposes orderings that are inconsistent with equals.
-    public int compare(Long a, Long b) {
-        if (base.get(a).getSendDate().compareTo(base.get(b).getSendDate()) > 0) {
+    public int compare(Message a, Message b) {
+        if (a.getSendDate().compareTo(b.getSendDate()) > 0) {
             return -1;
         } else {
             return 1;

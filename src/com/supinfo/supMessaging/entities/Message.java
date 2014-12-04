@@ -22,6 +22,7 @@ public class Message {
     @JoinColumn(name = "recipient_fk")
     private User recipient;
 
+    @Lob
     private String message;
 
     private Date sendDate;
