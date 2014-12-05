@@ -32,7 +32,8 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDao lUserDao = DaoFactory.getUserDao();
         MessageDao lMessageDao = DaoFactory.getMessageDao();
-
+        request.setAttribute("messagePerDay", lMessageDao.getStatInfo());
+        request.setAttribute("userPerMonth", lUserDao.getStatPerMonth());
         request.setAttribute("nbUser", lUserDao.getNumberOfUser());
         request.setAttribute("nbPost", lMessageDao.getNumberOfMessage());
         request.getRequestDispatcher("Home.jsp").forward(request, response);

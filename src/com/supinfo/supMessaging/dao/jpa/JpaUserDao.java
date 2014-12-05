@@ -103,7 +103,7 @@ public class JpaUserDao implements UserDao {
         PersistHelper.update(emf, user);
     }
 
-	@Override
+    @Override
     public Long getNumberOfUser() {
 
         EntityManager em = emf.createEntityManager();
@@ -113,6 +113,20 @@ public class JpaUserDao implements UserDao {
         } finally {
             em.close();
         }
-		
-	}
+    }
+
+    public List<Object[]> getStatPerMonth() {
+
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT u.inscriptionDate,count(u) FROM User u " +
+                    "group by MONTH(u.inscriptionDate),YEAR(u.inscriptionDate) ");
+            return query.getResultList();
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            em.close();
+        }
+
+    }
 }

@@ -132,4 +132,18 @@ public class JpaMessageDao implements MessageDao {
         }
     }
 
+    public List<Object[]> getStatInfo() {
+
+        EntityManager em = emf.createEntityManager();
+        try {
+            Query query = em.createQuery("SELECT m.sendDate,count(m) FROM Message m " +
+                    "GROUP BY  DAY(m.sendDate),MONTH(m.sendDate),YEAR(m.sendDate) ");
+            return query.getResultList();
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            em.close();
+        }
+
+    }
 }

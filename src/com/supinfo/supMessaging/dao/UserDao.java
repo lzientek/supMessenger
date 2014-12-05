@@ -25,5 +25,6 @@ public interface UserDao {
     void updateUser(User user);
 
     Long getNumberOfUser();
-    
+
+    List<Object[]> getStatPerMonth();
 }
