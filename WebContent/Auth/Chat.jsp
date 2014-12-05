@@ -107,21 +107,23 @@
             </div>
         </div>
         <div class="row">
-            <form class="form-horizontal" role="form" action="" method="post">
-                <div class="col-sm-11">
 
-                    <div class="input-group input-group-lg" style="height: 100px;">
 
-                        <textarea style="height: 100px;" rows="2" class="form-control" name="message" id="message"
-                                  placeholder="Message..."> </textarea>
+            <c:if test="${not empty param.contactId and param.contactId > 0}">
+                <form class="form-horizontal" role="form" action="" method="post">
+                    <div class="col-sm-11">
+
+                        <div class="input-group input-group-lg" style="height: 100px;">
+
+                            <textarea style="height: 100px;" rows="2" class="form-control" name="message" id="message"
+                                      placeholder="Message..."> </textarea>
                         <span style="height: 100px;" class="input-group-btn">
                             <button style="height: 100px;" type="submit" class="btn btn-primary">Send</button>
                             </span>
+                        </div>
                     </div>
-
-                </div>
-
-            </form>
+                </form>
+            </c:if>
         </div>
     </div>
 </div>

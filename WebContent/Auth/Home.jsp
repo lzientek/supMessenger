@@ -21,7 +21,8 @@
             <c:if test="${message.recipient.id == sessionScope.userId}">
                 <c:set var="contact" value="${message.transmitter}"/>
                 <c:set var="isRecipient" value="true"/>
-            </c:if> <c:set var="isRecipient" value="false"/>
+            </c:if>
+            <c:set var="isRecipient" value="false"/>
 
 
             <div class="row">
