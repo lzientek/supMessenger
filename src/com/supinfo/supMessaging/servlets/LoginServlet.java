@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
         try {
 
             UserDao lUserDao = DaoFactory.getUserDao();
-            User lUser = lUserDao.findUserByUsername(request.getParameter("username"));
+            User lUser =  lUserDao.findUserByUsername(request.getParameter("username"));
 
             if (lUser != null) {
                 if (lUser.checkPassword(request.getParameter("password"))) {
@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 
         } catch (Exception e) {
             request.setAttribute("error", e.getMessage());
+            request.setAttribute("Lusername", request.getParameter("username"));
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
 

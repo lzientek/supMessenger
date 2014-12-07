@@ -14,11 +14,17 @@
         <p class="alert alert-danger"><c:out value="${error}"/></p>
     </c:if>
     <form class="form-horizontal" role="form" method="post" action="Login">
+    
         <div class="form-group">
             <label for="username" class="col-sm-2 control-label"> Username : </label>
-
             <div class="col-sm-5">
-                <input class="form-control" id="username" name="username"/>
+            <c:if test="${not empty Lusername }" >
+            			<input class="form-control" id="username" name="username"  value="${Lusername}" />
+            		</c:if>
+            		<c:if test="${ empty Lusername }" >
+            			<input class="form-control" id="username" name="username"/>
+            		</c:if> 
+
             </div>
         </div>
         <div class="form-group">

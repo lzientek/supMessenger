@@ -21,42 +21,74 @@
 			<div class="form-group">
 				<label for="username" class="col-sm-2 control-label"> username : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="username" name="username"/>
+            		<c:if test="${not empty Rusername }" >
+            			<input class="form-control" id="username" name="username" value="${Rusername}"/>
+            		</c:if>
+            		<c:if test="${ empty Rusername }" >
+            			<input class="form-control" id="username" name="username"/>
+            		</c:if>      	
             	</div>
 			</div>
 
 			<div class="form-group">
 				<label for="password" class="col-sm-2 control-label"> password : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="password" type="password" name="password"/>
+            	<c:if test="${not empty Rpassword }" >
+            			<input class="form-control" id="password" type="password" name="password" value="${Rpassword}"/>
+            		</c:if>
+            		<c:if test="${ empty Rpassword }" >
+            			<input class="form-control" id="password" type="password" name="password"/>
+            		</c:if>   
             	</div>
 			</div>
 			
 			<div class="form-group">
 				<label for="password2" class="col-sm-2 control-label"> password : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="password2" type="password" name="password2"/>
+            	<c:if test="${not empty Rpassword2 }" >
+            			<input class="form-control" id="password2" type="password" name="password2" value="${Rpassword2}"/>
+            		</c:if>
+            		<c:if test="${ empty Rpassword2 }" >
+            			<input class="form-control" id="password2" type="password" name="password2"/>
+            		</c:if> 
             	</div>
 			</div>
 			
 			<div class="form-group">
 				<label for="mail" class="col-sm-2 control-label"> mail : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="mail" type="text" name="mail"/>
+            	<c:if test="${not empty Rmail }" >
+            			<input class="form-control" id="mail" type="text" name="mail"  value="${Rmail}" />
+            		</c:if>
+            		<c:if test="${ empty Rmail }" >
+            			<input class="form-control" id="mail" type="text" name="mail"/>
+            		</c:if>	
             	</div>
 			</div>
 			
 			<div class="form-group">
-				<label for="mail" class="col-sm-2 control-label"> first name : </label>
+				<label for="firstName" class="col-sm-2 control-label"> first name : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="firstName" type="text" name="firstName"/>
+            	<c:if test="${not empty RfirstName }" >
+            			<input class="form-control" id="firstName" type="text" name="firstName" value="${RfirstName}"/>
+            		</c:if>
+            		<c:if test="${ empty RfirstName }" >
+            			<input class="form-control" id="firstName" type="text" name="firstName"/>
+            		</c:if>	
+                	
             	</div>
 			</div>
 			
 			<div class="form-group">
-				<label for="mail" class="col-sm-2 control-label"> last name : </label>
+				<label for="lastName" class="col-sm-2 control-label"> last name : </label>
             	<div class="col-sm-5">
-                	<input class="form-control" id="lastName" type="text" name="lastName"/>
+            	<c:if test="${not empty RlastName }" >
+            			<input class="form-control" id="lastName" type="text" name="lastName" value="${RlastName}" />
+            		</c:if>
+            		<c:if test="${ empty RlastName }" >
+            			<input class="form-control" id="lastName" type="text" name="lastName"/>
+            		</c:if>
+                	
             	</div>
 			</div>
 				
@@ -68,19 +100,6 @@
 	    </form>
 	</fieldset>
 </div>
- 
- <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="_js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="_js/bootstrap.js"></script>
-<script type="text/javascript">
 
-		$(function(){
-	   $('.datepicker').datepicker({
-		      format: 'mm-dd-yyyy'
-		    });
-		});
-</script>
-
- 
 </body>
 </html>

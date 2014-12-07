@@ -122,6 +122,14 @@ public class RegisterServlet extends HttpServlet {
 		} catch (Exception e) {
             request.setAttribute("success", false);
             request.setAttribute("error", e.getMessage());
+            
+            request.setAttribute("Rusername",request.getParameter("username"));
+            request.setAttribute("Rpassword",request.getParameter("password"));
+            request.setAttribute("Rpassword2",request.getParameter("password2"));
+            request.setAttribute("Rmail",request.getParameter("mail"));
+            request.setAttribute("RfirstName",request.getParameter("firstName"));
+            request.setAttribute("RlastName",request.getParameter("lastName"));
+            
             request.getRequestDispatcher("RegisterPage.jsp").forward(request, response);
 		}
 
