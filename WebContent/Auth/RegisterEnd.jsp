@@ -6,15 +6,15 @@
 <html>
 <head>
     <title>Register Sucess</title>
-    <%@ include file="Style/HeaderStyle.jsp" %>
+    <%@ include file="../Style/HeaderStyle.jsp" %>
 </head>
+
 <body>
-<%@ include file="Partial/MenuPartial.jsp" %>
-<div class="container">
 
-    <p class="alert alert-success"> Register Sucess </p>
-
-</div>
+	<%@ include file="../Partial/MenuPartial.jsp" %>
+	<div class="container" style="margin-top:160px;">
+	    <p class="alert alert-success"> Register Sucess </p>
+	</div>
  
 </body>
 

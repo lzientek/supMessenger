@@ -4,6 +4,7 @@ import com.supinfo.supMessaging.dao.DaoFactory;
 import com.supinfo.supMessaging.dao.UserDao;
 import com.supinfo.supMessaging.dao.jpa.JpaUserDao;
 import com.supinfo.supMessaging.entities.User;
+import com.supinfo.supMessaging.helpers.Constant;
 import com.supinfo.supMessaging.helpers.EmailValidator;
 
 import javax.servlet.ServletException;
@@ -103,7 +104,7 @@ public class RegisterServlet extends HttpServlet {
             
             if(request.getParameter("lastName") != null && !request.getParameter("lastName").replaceAll(" ", "").equals("") )
             {
-            	lUser.setFirstname(request.getParameter("lastName").replaceAll(" ", ""));
+            	lUser.setLastname(request.getParameter("lastName").replaceAll(" ", ""));
             }
             else
             {
@@ -115,9 +116,10 @@ public class RegisterServlet extends HttpServlet {
 			
 			UserDao luserDao = DaoFactory.getUserDao();
 			luserDao.addUser(lUser);
-
-            request.setAttribute("success", true);
-            request.getRequestDispatcher("RegisterEnd.jsp").forward(request, response);
+			
+			request.getSession().setAttribute(Constant.userSession, lUser.getId());
+			
+            response.sendRedirect("Auth/RegisterEnd.jsp");
 			
 		} catch (Exception e) {
             request.setAttribute("success", false);
