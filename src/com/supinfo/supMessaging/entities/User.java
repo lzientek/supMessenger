@@ -76,7 +76,7 @@ public class User implements Serializable {
     }
 
     public Boolean getIsAdmin() {
-        return isAdmin;
+        return isAdmin != null && isAdmin;
     }
 
     public void setIsAdmin(Boolean isAdmin) {
