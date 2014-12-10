@@ -1,0 +1,63 @@
+package com.supinfo.supMessaging.Filtre;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.supinfo.supMessaging.helpers.Constant;
+
+/**
+ * Servlet Filter implementation class originFilter
+ */
+@WebFilter("/")
+public class originFilter implements Filter {
+
+    /**
+     * Default constructor. 
+     */
+    public originFilter() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see Filter#destroy()
+	 */
+	public void destroy() {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+	 */
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		
+		HttpServletRequest lrequest = (HttpServletRequest)request;
+		HttpServletResponse lresponse = (HttpServletResponse)response;
+		
+			if(lrequest.getSession().getAttribute(Constant.userSession) == null)
+			{
+				lresponse.sendRedirect("Home");
+			}
+			else
+			{
+				lresponse.sendRedirect("Auth/Home");
+			}		
+	
+	}
+
+	/**
+	 * @see Filter#init(FilterConfig)
+	 */
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+}
